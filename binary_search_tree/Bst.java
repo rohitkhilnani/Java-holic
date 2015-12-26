@@ -6,13 +6,13 @@ import binary_search_tree.Node;		// My implementation of Node class present in p
 /*
 	This class implements Binary Search Tree. Following algorithms have been implemented: 
 
-						1. Insertion
-						2. Deletion
-						3. In Order Traversal
-						4. Pre Order Traversal
-						5. Post Order Traversal
-						6. Level Order Traversal
-						7. Search for an element
+						1. Insertion  				*done*
+						2. Deletion 				*left*
+						3. In Order Traversal 		*done*
+						4. Pre Order Traversal 		*done*
+						5. Post Order Traversal 	*done*	
+						6. Level Order Traversal 	*left*
+						7. Search for an element 	*left*
 
 	Note: Duplicate Keys are not allowed.					
 */
