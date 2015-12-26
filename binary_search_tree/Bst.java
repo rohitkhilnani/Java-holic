@@ -1,5 +1,7 @@
 package binary_search_tree;
 
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import binary_search_tree.Node;		// My implementation of Node class present in package binary_search_tree
 
@@ -66,6 +68,7 @@ class Bst{
 
 
 	// Visits a Node in In Order fashion
+	// Time Complexity: O(N)
 
 	protected void inOrderVisit(Node n){
 
@@ -101,6 +104,7 @@ class Bst{
 
 
 	// Visits a Node in Pre Order fashion
+	// Time Complexity: O(N)
 
 	protected void preOrderVisit(Node n){
 
@@ -136,6 +140,7 @@ class Bst{
 
 
 	// Visits a Node in Post Order fashion
+	// Time Complexity: O(N)
 
 	protected void postOrderVisit(Node n){
 
@@ -156,6 +161,7 @@ class Bst{
 
 	// Post Order traversal of tree. Calls postOrderVisit on Root
 	// Throws NoSuchElementException if root is null i.e. tree is empty.
+	
 
 	public void postOrder(){
 
@@ -168,5 +174,45 @@ class Bst{
 		postOrderVisit(root);
 
 	}
+
+
+	// Level Order Traversal
+	// Time Complexity: O(N)
+
+	public void levelOrder(){
+
+		// If tree is empty, throw NoSuchElementException
+		if(root == null){
+
+			throw new NoSuchElementException("Tree is empty");	
+		}
+
+		// Create a queue to hold Nodes
+		Queue<Node> queue = new LinkedList<Node>();
+
+		// Insert root node in queue
+		queue.add(root);
+
+		// while queue is not empty
+		while(!queue.isEmpty()){
+
+			// Remove node from queue
+			Node n = queue.remove();
+
+			// Print its value
+			System.out.print(n.getValue()+" ");
+
+			// Insert its left and right child on queue.
+			if(n.getLeft()!=null)
+				queue.add(n.getLeft());
+
+			if(n.getRight()!=null)
+				queue.add(n.getRight());		
+
+		}
+
+
+	}		
+
 
 }
