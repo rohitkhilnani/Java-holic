@@ -251,10 +251,12 @@ class Bst{
 
 
 	// Deletes Node with specified value in tree rooted at node n
-
+	// Time Complexity: 
+	//					Average Case: O(log N)
+	//					Worst Case: O(N)		
 	protected Node delete(Node n, int value){
 
-		// If n is null, return null
+		// If n is null, throw exception
 		if(n==null)
 			throw new NoSuchElementException("Node with value: " + value + " does not exit!");
 
@@ -314,7 +316,7 @@ class Bst{
 
 	// Returns In Order successor of specified node
 
-	public Node findSucc(Node n){
+	protected Node findSucc(Node n){
 
 		// n is null or n's right sub tree does not exist, throw exception
 		if(n == null || n.getRight() == null)
