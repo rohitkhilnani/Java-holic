@@ -143,6 +143,63 @@ class TestBst{
 
 	}
 
+
+	// Tests Deletion
+
+	public static void testDeletion(){
+
+		// Create a bst object
+		Bst bst = new Bst();
+
+
+		// Test deletion on empty tree. Should throw exception
+		try{
+
+			bst.delete(10);	
+		}
+		catch(NoSuchElementException e){
+
+			System.out.println(e);
+		}
+
+
+		// Create array of integers to insert
+		int[] values = {10, 7, 9, 8, 2, 15, 13, 17};
+		
+
+		// Insert values into bst
+		for(int v: values){
+			bst.insert(v);
+		}
+
+
+		// Create array of keys to be deleted (contains some keys which are not present in tree)
+		int[] deleteKeys = {99, 10, 15, 8, 7, 100, 2, 9, 33, 17, 13};
+
+
+		// Print level order traversal
+		bst.levelOrder();		
+		System.out.println();
+
+		// Try to delete each key in deleteKeys
+		for(int d: deleteKeys){
+
+			try{
+				bst.delete(d);
+				System.out.println("Deleted: "+ d);
+				bst.levelOrder();
+				System.out.println();
+			}
+			catch(NoSuchElementException e){
+				System.out.println(e);
+			}
+
+		}
+
+
+
+	}
+
 	public static void main(String args[]){
 
 		// Test Insertion
@@ -150,6 +207,9 @@ class TestBst{
 
 		// Test Search
 		testSearch();
+
+		// Test Deletion
+		testDeletion();
 	}
 
 }
