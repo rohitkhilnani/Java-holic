@@ -1,18 +1,20 @@
 package binary_search_tree;
 
+import java.util.Queue;
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import binary_search_tree.Node;		// My implementation of Node class present in package binary_search_tree
 
 /*
 	This class implements Binary Search Tree. Following algorithms have been implemented: 
 
-						1. Insertion
-						2. Deletion
-						3. In Order Traversal
-						4. Pre Order Traversal
-						5. Post Order Traversal
-						6. Level Order Traversal
-						7. Search for an element
+						1. Insertion  				*done*
+						2. Deletion 				*done*
+						3. In Order Traversal 		*done*
+						4. Pre Order Traversal 		*done*
+						5. Post Order Traversal 	*done*	
+						6. Level Order Traversal 	*done*
+						7. Search for an element 	*done*
 
 	Note: Duplicate Keys are not allowed.					
 */
@@ -66,6 +68,7 @@ class Bst{
 
 
 	// Visits a Node in In Order fashion
+	// Time Complexity: O(N)
 
 	protected void inOrderVisit(Node n){
 
@@ -101,6 +104,7 @@ class Bst{
 
 
 	// Visits a Node in Pre Order fashion
+	// Time Complexity: O(N)
 
 	protected void preOrderVisit(Node n){
 
@@ -136,6 +140,7 @@ class Bst{
 
 
 	// Visits a Node in Post Order fashion
+	// Time Complexity: O(N)
 
 	protected void postOrderVisit(Node n){
 
@@ -156,6 +161,7 @@ class Bst{
 
 	// Post Order traversal of tree. Calls postOrderVisit on Root
 	// Throws NoSuchElementException if root is null i.e. tree is empty.
+	
 
 	public void postOrder(){
 
@@ -168,5 +174,162 @@ class Bst{
 		postOrderVisit(root);
 
 	}
+
+
+	// Level Order Traversal
+	// Time Complexity: O(N)
+
+	public void levelOrder(){
+
+		// If tree is empty, throw NoSuchElementException
+		if(root == null){
+
+			throw new NoSuchElementException("Tree is empty");	
+		}
+
+		// Create a queue to hold Nodes
+		Queue<Node> queue = new LinkedList<Node>();
+
+		// Insert root node in queue
+		queue.add(root);
+
+		// while queue is not empty
+		while(!queue.isEmpty()){
+
+			// Remove node from queue
+			Node n = queue.remove();
+
+			// Print its value
+			System.out.print(n.getValue()+" ");
+
+			// Insert its left and right child on queue.
+			if(n.getLeft()!=null)
+				queue.add(n.getLeft());
+
+			if(n.getRight()!=null)
+				queue.add(n.getRight());		
+
+		}
+
+
+	}		
+
+
+	// Searches a Node with specified value in the tree
+	// Time Complexity: 
+	//					Average Case: O(log N)
+	//					Worst Case: O(N)		
+	// Returns reference to Node if found. Otherwise, returns null
+	// Throws NoSuchElementException if tree is empty
+
+	public Node search(int value){
+
+		// If tree is empty, throw NoSuchElementException
+		if(root == null){
+
+			throw new NoSuchElementException("Tree is empty");	
+		}
+
+		// Obtain a reference to root
+		Node n = root;
+
+		// Repeat until n = null (search unsuccessful) or n.value = value (search successful)
+		while(n!=null && n.getValue() != value){
+
+			// If value is smaller than the value at n, set n = n.left
+			if(value < n.getValue())
+				n = n.getLeft();
+			else 						 // Otherwise, set n = n.right
+				n = n.getRight();
+
+		}
+
+		// Return n 
+		return n;
+
+	}
+
+
+	// Deletes Node with specified value in tree rooted at node n
+
+	protected Node delete(Node n, int value){
+
+		// If n is null, return null
+		if(n==null)
+			throw new NoSuchElementException("Node with value: " + value + " does not exit!");
+
+		// If value is less than n, delete in left subtree
+		if(value < n.getValue())			
+			n.setLeft( delete(n.getLeft(), value)  );
+		
+		else if(value > n.getValue())  //  If value is greater than n, delete in right subtree
+			n.setRight( delete(n.getRight(), value) );
+		
+		else{   // If n is the node to be deleted
+
+
+			// If one of the childlren of n is null, assign n as other child
+
+			if(n.getLeft()==null)
+				n = n.getRight();
+			else
+				if(n.getRight()==null)
+					n = n.getLeft();
+				else {    // If n has two children
+
+						// Find n's in order successor
+						Node succ = findSucc(n);	
+
+						// Copy succ's value to n
+						n.setValue( succ.getValue() );
+
+						// Delete succ from n's right subtree
+						n.setRight( delete(n.getRight(),succ.getValue() ) );
+
+				}
+
+
+
+			}			
+
+		// Return n	
+		return n;	
+
+	}
+
+
+	// Delete Node with specified value from tree
+	// Calls overloaded delete(Node n, int value)
+	// Throws NoSuchElementException if tree is empty
+
+	public void delete(int value){
+
+		if (root == null)
+			throw new NoSuchElementException("Tree is empty");
+
+		root = delete(root, value);
+
+	}
+
+
+	// Returns In Order successor of specified node
+
+	public Node findSucc(Node n){
+
+		// n is null or n's right sub tree does not exist, throw exception
+		if(n == null || n.getRight() == null)
+			throw new NoSuchElementException("Inorder Successor does not exist");
+
+		//Obtain a reference to n's right child
+		Node ref = n.getRight();
+
+		// set ref = ref's left child while ref's left child is not null
+		while(ref.getLeft()!=null)
+			ref = ref.getLeft();
+
+		// Return ref, which is the in order successor
+		return ref;
+	}
+
 
 }
