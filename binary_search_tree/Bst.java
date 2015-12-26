@@ -99,4 +99,41 @@ class Bst{
 
 	}
 
+
+	// Visits a Node in Pre Order fashion
+
+	protected void preOrderVisit(Node n){
+
+		// Return if n is null
+		if(n == null)
+			return;
+
+		// Otherwise, Print value at node
+		System.out.print(n.getValue()+" ");
+
+		// Visit Left subtree
+		preOrderVisit(n.getLeft());
+
+		// Visit Right subtree
+		preOrderVisit(n.getRight());
+	}
+
+
+	// Pre Order traversal of tree. Calls preOrderVisit on Root
+	// Throws NoSuchElementException if root is null i.e. tree is empty.
+
+	public void preOrder(){
+
+		// If tree is empty, throw NoSuchElementException
+		if(root == null){
+			throw new NoSuchElementException("Tree is empty");	
+		}
+
+		// Otherwise, call preOrderVisit on root
+		preOrderVisit(root);
+
+	}
+
+
+
 }
