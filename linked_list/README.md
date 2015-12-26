@@ -1,3 +1,5 @@
+# Linked List
+
 Class LinkedList implements a singly linked list.
 
 Structure of each node is defined in class Node.
