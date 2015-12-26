@@ -44,6 +44,15 @@ class TestBst{
 		}
 
 
+		// Test Level Order when tree is empty. Should throw exception
+		try{
+			bst.levelOrder();
+		}
+		catch(NoSuchElementException e){
+			System.out.println(e);
+		}
+
+
 		// Create array of integers to insert
 		int[] values = {10, 7, 9, 8, 2, 15, 13, 17};
 		
@@ -75,6 +84,14 @@ class TestBst{
 
 		System.out.println();
 		System.out.println("Should be:\t\t 2 8 9 7 13 17 15 10");
+
+
+		// Print Level Order traversal
+		System.out.print("Level order Traversal:\t ");
+		bst.levelOrder();
+
+		System.out.println();
+		System.out.println("Should be:\t\t 10 7 15 2 9 13 17 8");
 
 	}
 
