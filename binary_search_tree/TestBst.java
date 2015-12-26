@@ -1,5 +1,6 @@
 package binary_search_tree;
 
+import java.util.NoSuchElementException;
 import binary_search_tree.Bst;	// My implementation of Binary Search Tree in package binary_search_tree
 
 /*
@@ -15,6 +16,15 @@ class TestBst{
 
 		// Create a bst object
 		Bst bst = new Bst();
+
+		// Test inorder when tree is empty. Should throw exception
+		try{
+			bst.inOrder();
+		}
+		catch(NoSuchElementException e){
+			System.out.println(e);
+		}
+
 
 		// Create array of integers to insert
 		int[] values = {10, 7, 9, 8, 2, 15, 13, 17};
