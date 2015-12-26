@@ -13,7 +13,7 @@ import binary_search_tree.Node;		// My implementation of Node class present in p
 						3. In Order Traversal 		*done*
 						4. Pre Order Traversal 		*done*
 						5. Post Order Traversal 	*done*	
-						6. Level Order Traversal 	*left*
+						6. Level Order Traversal 	*done*
 						7. Search for an element 	*left*
 
 	Note: Duplicate Keys are not allowed.					
@@ -213,6 +213,41 @@ class Bst{
 
 
 	}		
+
+
+	// Searches a Node with specified value in the tree
+	// Time Complexity: 
+	//					Average Case: O(log N)
+	//					Worst Case: O(N)		
+	// Returns reference to Node if found. Otherwise, returns null
+	// Throws NoSuchElementException if tree is empty
+
+	public Node search(int value){
+
+		// If tree is empty, throw NoSuchElementException
+		if(root == null){
+
+			throw new NoSuchElementException("Tree is empty");	
+		}
+
+		// Obtain a reference to root
+		Node n = root;
+
+		// Repeat until n = null (search unsuccessful) or n.value = value (search successful)
+		while(n!=null && n.getValue() != value){
+
+			// If value is smaller than the value at n, set n = n.left
+			if(value < n.getValue())
+				n = n.getLeft();
+			else 						 // Otherwise, set n = n.right
+				n = n.getRight();
+
+		}
+
+		// Return n 
+		return n;
+
+	}
 
 
 }
