@@ -35,6 +35,15 @@ class TestBst{
 		}
 
 
+		// Test Post Order when tree is empty. Should throw exception
+		try{
+			bst.postOrder();
+		}
+		catch(NoSuchElementException e){
+			System.out.println(e);
+		}
+
+
 		// Create array of integers to insert
 		int[] values = {10, 7, 9, 8, 2, 15, 13, 17};
 		
@@ -45,7 +54,7 @@ class TestBst{
 		}
 
 		// Print In Order traversal
-		System.out.print("Inorder Traversal:\t ");
+		System.out.print("In order Traversal:\t ");
 		bst.inOrder();
 
 		System.out.println();
@@ -58,6 +67,14 @@ class TestBst{
 
 		System.out.println();
 		System.out.println("Should be:\t\t 10 7 2 9 8 15 13 17");
+
+
+		// Print Post Order traversal
+		System.out.print("Post order Traversal:\t ");
+		bst.postOrder();
+
+		System.out.println();
+		System.out.println("Should be:\t\t 2 8 9 7 13 17 15 10");
 
 	}
 
