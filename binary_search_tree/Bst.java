@@ -9,7 +9,7 @@ import binary_search_tree.Node;		// My implementation of Node class present in p
 	This class implements Binary Search Tree. Following algorithms have been implemented: 
 
 						1. Insertion  				*done*
-						2. Deletion 				*left*
+						2. Deletion 				*done*
 						3. In Order Traversal 		*done*
 						4. Pre Order Traversal 		*done*
 						5. Post Order Traversal 	*done*	
@@ -247,6 +247,88 @@ class Bst{
 		// Return n 
 		return n;
 
+	}
+
+
+	// Deletes Node with specified value in tree rooted at node n
+
+	protected Node delete(Node n, int value){
+
+		// If n is null, return null
+		if(n==null)
+			throw new NoSuchElementException("Node with value: " + value + " does not exit!");
+
+		// If value is less than n, delete in left subtree
+		if(value < n.getValue())			
+			n.setLeft( delete(n.getLeft(), value)  );
+		
+		else if(value > n.getValue())  //  If value is greater than n, delete in right subtree
+			n.setRight( delete(n.getRight(), value) );
+		
+		else{   // If n is the node to be deleted
+
+
+			// If one of the childlren of n is null, assign n as other child
+
+			if(n.getLeft()==null)
+				n = n.getRight();
+			else
+				if(n.getRight()==null)
+					n = n.getLeft();
+				else {    // If n has two children
+
+						// Find n's in order successor
+						Node succ = findSucc(n);	
+
+						// Copy succ's value to n
+						n.setValue( succ.getValue() );
+
+						// Delete succ from n's right subtree
+						n.setRight( delete(n.getRight(),succ.getValue() ) );
+
+				}
+
+
+
+			}			
+
+		// Return n	
+		return n;	
+
+	}
+
+
+	// Delete Node with specified value from tree
+	// Calls overloaded delete(Node n, int value)
+	// Throws NoSuchElementException if tree is empty
+
+	public void delete(int value){
+
+		if (root == null)
+			throw new NoSuchElementException("Tree is empty");
+
+		root = delete(root, value);
+
+	}
+
+
+	// Returns In Order successor of specified node
+
+	public Node findSucc(Node n){
+
+		// n is null or n's right sub tree does not exist, throw exception
+		if(n == null || n.getRight() == null)
+			throw new NoSuchElementException("Inorder Successor does not exist");
+
+		//Obtain a reference to n's right child
+		Node ref = n.getRight();
+
+		// set ref = ref's left child while ref's left child is not null
+		while(ref.getLeft()!=null)
+			ref = ref.getLeft();
+
+		// Return ref, which is the in order successor
+		return ref;
 	}
 
 
