@@ -135,5 +135,38 @@ class Bst{
 	}
 
 
+	// Visits a Node in Post Order fashion
+
+	protected void postOrderVisit(Node n){
+
+		// Return if n is null
+		if(n == null)
+			return;
+
+		// Otherwise Visit Left subtree
+		postOrderVisit(n.getLeft());
+
+		// Visit Right subtree
+		postOrderVisit(n.getRight());
+
+		// Print value at node
+		System.out.print(n.getValue()+" ");
+	}
+
+
+	// Post Order traversal of tree. Calls postOrderVisit on Root
+	// Throws NoSuchElementException if root is null i.e. tree is empty.
+
+	public void postOrder(){
+
+		// If tree is empty, throw NoSuchElementException
+		if(root == null){
+			throw new NoSuchElementException("Tree is empty");	
+		}
+
+		// Otherwise, call postOrderVisit on root
+		postOrderVisit(root);
+
+	}
 
 }
