@@ -14,7 +14,7 @@ import binary_search_tree.Node;		// My implementation of Node class present in p
 						4. Pre Order Traversal 		*done*
 						5. Post Order Traversal 	*done*	
 						6. Level Order Traversal 	*done*
-						7. Search for an element 	*left*
+						7. Search for an element 	*done*
 
 	Note: Duplicate Keys are not allowed.					
 */
