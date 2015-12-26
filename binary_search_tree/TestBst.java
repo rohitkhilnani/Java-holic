@@ -11,13 +11,13 @@ class TestBst{
 
 			
 
-	// Tests Insertion
+	// Tests Insertion and traversals
 	public static void testInsertion(){
 
 		// Create a bst object
 		Bst bst = new Bst();
 
-		// Test inorder when tree is empty. Should throw exception
+		// Test Pre Order when tree is empty. Should throw exception
 		try{
 			bst.inOrder();
 		}
@@ -26,8 +26,18 @@ class TestBst{
 		}
 
 
+		// Test Pre Order when tree is empty. Should throw exception
+		try{
+			bst.preOrder();
+		}
+		catch(NoSuchElementException e){
+			System.out.println(e);
+		}
+
+
 		// Create array of integers to insert
 		int[] values = {10, 7, 9, 8, 2, 15, 13, 17};
+		
 
 		// Insert values into bst
 		for(int v: values){
@@ -41,7 +51,16 @@ class TestBst{
 		System.out.println();
 		System.out.println("Should be:\t\t 2 7 8 9 10 13 15 17");
 
+
+		// Print Pre Order traversal
+		System.out.print("Pre order Traversal:\t ");
+		bst.preOrder();
+
+		System.out.println();
+		System.out.println("Should be:\t\t 10 7 2 9 8 15 13 17");
+
 	}
+
 
 
 
