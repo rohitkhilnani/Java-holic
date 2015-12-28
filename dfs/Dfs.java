@@ -51,9 +51,7 @@ class Dfs{
 
 			adj.get(x).add( v.get(y) );
 
-			// Add vertex named x to y's adjacency list
-
-			adj.get(y).add( v.get(x) );
+			
 
 		}
 
