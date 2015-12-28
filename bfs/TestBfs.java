@@ -8,7 +8,7 @@ class TestBfs{
 	
 	public static void testTraversal(){
 
-		int N = 6;			// Number of vertices
+		int N = 7;			// Number of vertices
 		int M = 7;			// Number of edges
 		int[][] edges = {	// Edges
 
