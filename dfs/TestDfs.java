@@ -12,6 +12,7 @@ class TestDfs{
 	// Tests traversal
 	public static void testTraversal(){
 
+		System.out.println("Test 1: \n");
 		int N = 15;	// No. of vertices
 		
 		int M = 16;	// No. fo edges
@@ -56,10 +57,94 @@ class TestDfs{
 
 	}
 
+
+	// Tests traversal and whether graph is acyclic or not
+	public static void testCyclicA(){
+
+		System.out.println("Test 2: \n");
+
+		int N = 5;	// No. of vertices
+		
+		int M = 5;	// No. fo edges
+
+		int[][] edges = 	{	{1,2}, 		// Edges
+								{1,4},
+								{2,3},
+								{3,4},
+								{1,5}								
+
+							};
+
+		Dfs dfs = new Dfs(N, M, edges);		// Use default starting vertex 1
+		
+		// Do Depth First Traversal
+		System.out.println("DFS Traversal");
+		dfs.traverse();					
+
+		// Print paths from source s to each vertex
+		System.out.println();	
+		System.out.println("Paths from vertex 1: ");
+		
+		for(int i=1;i<=N;i++){
+
+			System.out.print(i+": ");
+			dfs.printPath(i);
+			System.out.println();
+		}
+
+		System.out.println("Is graph cyclic? : " + dfs.isCyclic());
+
+	}
+
+
+	// Tests traversal and whether graph is acyclic or not
+	public static void testCyclicB(){
+
+		System.out.println("Test 3: \n");
+
+		int N = 5;	// No. of vertices
+		
+		int M = 7;	// No. fo edges
+
+		int[][] edges = 	{	{1,2}, 		// Edges
+								{1,4},
+								{2,3},
+								{3,4},
+								{1,5},
+								{3,5},
+								{5,1}
+
+							};
+
+		Dfs dfs = new Dfs(N, M, edges);		// Use default starting vertex 1
+		
+		// Do Depth First Traversal
+		System.out.println("DFS Traversal");
+		dfs.traverse();					
+
+		// Print paths from source s to each vertex
+		System.out.println();	
+		System.out.println("Paths from vertex 1: ");
+		
+		for(int i=1;i<=N;i++){
+
+			System.out.print(i+": ");
+			dfs.printPath(i);
+			System.out.println();
+		}
+
+		System.out.println("Is graph cyclic? : " + dfs.isCyclic());
+
+	}
+
+
+
 	public static void main(String args[]){
 
 		// call testTraversal
 		testTraversal();
+		testCyclicA();
+		testCyclicB();
 
 	}
 
