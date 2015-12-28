@@ -14,7 +14,7 @@ class Dfs{
 	private HashMap<Integer, LinkedList<Vertex> > adj;		// Map from vertex name to its adjacency list
 	private int s = 1; 										// starting vertex // Default is vertex named 1
 	private static int t = 0;								// timestamp variable
-
+	private boolean cyclic = false; 						// Indicates whether graph is cyclic or not
 
 	// Constructs Dfs object.
 	// N - No. of vertices
@@ -117,6 +117,11 @@ class Dfs{
 				dfsVisit(v);
 
 			}	
+
+			// If a back edge is encountered (Discovered a gray vertex),
+			// set cyclic to be true.
+			if(v.getColor() == 'g')
+				cyclic = true;	
 		}
 
 		// Make u black
@@ -155,5 +160,12 @@ class Dfs{
 
 	}
 
+
+	// Returns true if the graph is cyclic, false otherwise
+	// Time Complexity: O(1)
+
+	public boolean isCyclic(){
+		return cyclic;
+	}
 
 }
