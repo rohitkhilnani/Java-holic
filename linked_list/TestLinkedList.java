@@ -9,7 +9,7 @@ import linked_list.LinkedList; 		// My implementation of linked list present in 
 					1. testInsert()
 					2. testDelete()
 					3. testGet()	
-
+					4. testReverse()    - This method is independent
 */
 
 class TestLinkedList{
@@ -182,6 +182,57 @@ class TestLinkedList{
 	}
 
 
+	// Test reverse
+
+	public static void testReverse(){
+
+		LinkedList ll = new  LinkedList();
+
+		// Test on empty list
+		System.out.println("Before: " + ll);
+		ll.reverse();
+		System.out.println("After: " + ll);
+
+
+		ll.insert(0,1);
+
+		// Test on list with 1 node
+		System.out.println("Before: " + ll);
+		ll.reverse();
+		System.out.println("After: " + ll);
+
+		ll.insert(0,2);
+
+		// Test on list with 2 nodes
+		System.out.println("Before: " + ll);
+		ll.reverse();
+		System.out.println("After: " + ll);		
+
+		for(int i=3;i<=10;i++)
+			ll.insert(0,i);
+
+		// Test on list with 10 nodes
+		System.out.println("Before: " + ll);
+		ll.reverse();
+		System.out.println("After: " + ll);
+
+
+		for(int i=11;i<=17;i++)
+			ll.insert(0,i);
+
+		// Test on list with 17 nodes
+		System.out.println("Before: " + ll);
+		ll.reverse();
+		System.out.println("After: " + ll);		
+
+
+
+
+	}
+
+
+
+
 	public static void main(String args[]){
 
 		// Test Insertion in linked list
@@ -192,6 +243,9 @@ class TestLinkedList{
 
 		// Test Retrieval 
 		testGet();
+
+		// Test Reverse
+		testReverse();
 
 	}
 

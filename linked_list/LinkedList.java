@@ -222,5 +222,47 @@ class LinkedList{
 
 	}
 
+
+	// Reverses linked list
+	// Time Complexity: O(N)	N - Number of Nodes in list
+
+	public void reverse(){
+
+		// Return if list has less than 2 Nodes.
+		if(head == null || head.getNext() == null){
+			return;
+		}
+
+		// Create three Node references
+		Node p1, p2, p3;
+
+		p1 = null;				// p1 is null
+		p2 = head;				// p2 = first node
+		p3 = head.getNext();	// p3 = second node
+
+		// Repeat while p2 is not null
+		while(p2!=null){
+
+			// set p2's next to p1
+			p2.setNext(p1);
+
+			// move p1 to p2
+			p1 = p2;
+
+			// move p2 to p3
+			p2 = p3;
+
+			// If p3 not null, advance p3
+			if( p3!=null)
+				p3 = p3.getNext();
+
+		}
+
+		// Set head as p1
+		head = p1;	
+
+	}
+
+
 }
 
