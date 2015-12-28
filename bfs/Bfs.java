@@ -153,6 +153,7 @@ class Bfs{
 
 
 	// Prints shortest distance of vertex u from source s
+	// Prints -1 if no path exists
 	// Time Complexity: O(1)
 
 	public void printShortestDistance(int u){
