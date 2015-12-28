@@ -7,3 +7,5 @@ Methods / Operations implemented:
 	public void traverse() - Traverses graph in Depth First Fashion
 
 	public void printPath(int u) - Prints path to each vertex from source vertex s
+
+	public boolean isCyclic() - Returns true if the graph is cyclic, false otherwise
