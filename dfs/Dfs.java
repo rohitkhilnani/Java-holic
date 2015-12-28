@@ -2,6 +2,8 @@ package dfs;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Comparator;
+import java.util.Collections;
 import dfs.Vertex;			// My implementation of Vertex class for Depth First Search
 
 /*
@@ -167,5 +169,50 @@ class Dfs{
 	public boolean isCyclic(){
 		return cyclic;
 	}
+
+
+	// Prints Topological Sort order of vertices if graph is acyclic.
+	// Otherwise, prints error message
+	// Time Complexity: V.log(V) 	V- Number of vertices
+
+	public void topologicalSort(){
+
+		// If graph is cyclic, 
+		if(cyclic)
+			System.out.println("Graph is cyclic. Toplogical Sort not possible");
+		else {
+
+			// Create a linked list of vertex references
+
+			LinkedList<Vertex> vlist = new LinkedList<Vertex>();
+
+			// Add all vertices to vlist
+			for(int i=1;i<=v.size();i++)
+				vlist.add(v.get(i));
+
+			// Sort vlist using topological Comp
+			Collections.sort(vlist, new toplogicalComp());
+
+			for(Vertex v: vlist){
+				System.out.print(v.getName() + " ");
+			}
+		}
+
+
+	}	
+
+
+	// Comparator for Topological Sort
+
+	protected class toplogicalComp implements Comparator<Vertex>{
+
+		// Comparator to sort in reverse order of finish times
+		public int compare(Vertex a, Vertex b){
+			return b.getF() - a.getF();
+		}
+
+	}
+
+
 
 }
