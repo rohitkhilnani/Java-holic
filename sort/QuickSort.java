@@ -48,6 +48,8 @@ class QuickSort{
 
 
 	// Sorts array of integers A from index p to index r (inclusive)
+	// Sort is in place	
+	// Not stable
 	// Time Complexity: 
 	//					Average Case: O( N.log(N) ) 	
 	// 					Worst Case: O( n*n )
