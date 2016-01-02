@@ -264,5 +264,52 @@ class LinkedList{
 	}
 
 
+	// Reverses linked list nodes in pair-wise fasion.
+	// E.g. Input: 1->2->3->4->5->6    Output: 2->1->4->3->6->5   
+	// E.g. Input: 1->2->3->4->5       Output: 2->1->4->3->5
+	// Updates head
+	// Time Complexit: O(N) 	N - No. of Nodes in list
+
+	public void pairwiseReverse(){
+
+		// If list has less than 2 elements, return original head
+		if(head == null || head.getNext() == null)
+			return;
+
+		// Obtain three references, first to null and other 2 to first 2 nodes
+		Node prev = null, curr = head, next = head.getNext();
+
+		// Update new head
+		head = next;
+
+		// Repeat while both curr and next are not null
+		while(curr!=null && next!=null){
+
+			curr.setNext(next.getNext());	// point current's next to next's next
+			next.setNext(curr); 			// point next's next to curr
+
+			// If prev is not null
+			if(prev!=null)	{
+				// point prev's next to next
+				prev.setNext(next);
+			}
+
+
+			// Advance pointers to be able to reverse next two nodes
+
+			prev = curr;
+			curr = curr.getNext();
+
+			// If curr is not null then set next as curr's next
+			if(curr!=null){
+				next = curr.getNext();
+			}
+
+		}
+
+	
+
+	}
+
 }
 
