@@ -231,6 +231,55 @@ class TestLinkedList{
 	}
 
 
+	// Tests Pairwise Reverse
+
+	public static void testPairwiseReverse(){
+
+		System.out.println("Testing Pairwise Reverse: ");
+
+		LinkedList ll = new  LinkedList();
+
+		// Test on empty list
+		System.out.println("Before:\t " + ll);
+		ll.pairwiseReverse();
+		System.out.println("After:\t " + ll);
+
+
+		ll.insert(0,1);
+
+		// Test on list with 1 node
+		System.out.println("Before:\t " + ll);
+		ll.pairwiseReverse();
+		System.out.println("After:\t " + ll);
+
+		ll.insert(0,2);
+
+		// Test on list with 2 nodes
+		System.out.println("Before:\t " + ll);
+		ll.pairwiseReverse();
+		System.out.println("After:\t " + ll);		
+
+		for(int i=3;i<=10;i++)
+			ll.insert(0,i);
+
+		// Test on list with 10 nodes
+		System.out.println("Before:\t " + ll);
+		ll.pairwiseReverse();
+		System.out.println("After:\t " + ll);
+
+
+		for(int i=11;i<=17;i++)
+			ll.insert(0,i);
+
+		// Test on list with 17 nodes
+		System.out.println("Before:\t " + ll);
+		ll.pairwiseReverse();
+		System.out.println("After:\t " + ll);		
+
+
+
+
+	}
 
 
 	public static void main(String args[]){
@@ -247,6 +296,8 @@ class TestLinkedList{
 		// Test Reverse
 		testReverse();
 
+		// Test Pairwise Reverse
+		testPairwiseReverse();
 	}
 
 }
