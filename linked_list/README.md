@@ -17,5 +17,7 @@ Methods/ Operations Implemented:
 	public String toString() - Returns a string containing values of all nodes		
 
 	public void reverse() - Reverses linked list
+
+	public void pairwiseReverse() - Reverses linked list in pairwise fasion (example in source code comments)
 	
 	
