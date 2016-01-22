@@ -23,7 +23,7 @@ class TestUniqueChars{
 	public static void test(){
 
 		// Define test strings
-		String[] strings = {"java","programming","rohit","a","81#&=+-/\\","khilnani","abcdefghijklmno_q","qq","",null};
+		String[] strings = {"java","programming","rohit","a","81#&=+-/\\","khilnani","abcdefghijklmno_q","qq","",null,"hey u !"};
 
 		// test each string
 		
