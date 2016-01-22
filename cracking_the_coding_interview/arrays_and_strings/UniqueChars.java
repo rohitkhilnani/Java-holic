@@ -16,8 +16,8 @@ class UniqueChars{
 	public static boolean check(String s){
 
 
-		// throw exception if string is empty
-		if(s == null){
+		// throw exception if string is empty or null
+		if(s == null || s.length() == 0){
 			throw new NullPointerException("String is empty");
 		}
 
