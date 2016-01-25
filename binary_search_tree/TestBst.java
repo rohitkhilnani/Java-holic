@@ -200,6 +200,48 @@ class TestBst{
 
 	}
 
+
+	// tests constructor that creates invalid bst
+
+	public static void testInvalidConstructor(){	
+
+		// Create invalid bst: 1
+		Bst bst = new Bst(1);
+
+		// level order traversal
+		System.out.println("Test 1: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+
+		// Create invalid bst: 2
+		bst = new Bst(2);
+
+		// level order traversal
+		System.out.println("Test 2: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+
+		// Create invalid bst: 3
+		bst = new Bst(3);
+
+		// level order traversal
+		System.out.println("Test 3: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+
+		// Create invalid bst: 4
+		bst = new Bst(4);
+
+		// level order traversal
+		System.out.println("Test 4: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+	}
+
 	public static void main(String args[]){
 
 		// Test Insertion
@@ -210,6 +252,9 @@ class TestBst{
 
 		// Test Deletion
 		testDeletion();
+
+		// test constructor that creates invalid bst
+		testInvalidConstructor();
 	}
 
 }
