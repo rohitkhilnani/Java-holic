@@ -22,6 +22,15 @@ Methods/ Operations Implemented:
 
 	protected Node findSucc(Node n) - Returns In Order successor of specified node
 
+	public boolean isValidBst() - Returns true if tree is a valid Binary Search Tree. 
+								  Returns false otherwise
+
+ 
+	// Empty tree (root = null) is assumed to be a valid bst.
+	// Time Complexity: O(N)		N - No. of Nodes
+	// Space Complexity: O(N)	
+
+	
 
 
 
