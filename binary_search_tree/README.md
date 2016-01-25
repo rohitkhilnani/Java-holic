@@ -26,10 +26,6 @@ Methods/ Operations Implemented:
 								  Returns false otherwise
 
  
-	// Empty tree (root = null) is assumed to be a valid bst.
-	// Time Complexity: O(N)		N - No. of Nodes
-	// Space Complexity: O(N)	
-
 	
 
 
