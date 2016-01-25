@@ -200,6 +200,99 @@ class TestBst{
 
 	}
 
+
+	// tests constructor that creates invalid bst
+
+	public static void testInvalidConstructor(){	
+
+		// Create invalid bst: 1
+		Bst bst = new Bst(1);
+
+		// level order traversal
+		System.out.println("\nTest 1: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+
+		// Create invalid bst: 2
+		bst = new Bst(2);
+
+		// level order traversal
+		System.out.println("\nTest 2: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+
+		// Create invalid bst: 3
+		bst = new Bst(3);
+
+		// level order traversal
+		System.out.println("\nTest 3: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+
+		// Create invalid bst: 4
+		bst = new Bst(4);
+
+		// level order traversal
+		System.out.println("\nTest 4: ");
+		System.out.println("Level order: ");
+		bst.levelOrder();
+
+	}
+
+
+	// tests isValidBst()
+
+	public static void testIsValidBst(){
+
+		System.out.println("\nTesting some invalid bsts");
+
+		// Create invalid bst: 1
+		Bst bst = new Bst(1);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+
+
+		// Create invalid bst: 2
+		bst = new Bst(2);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		// Create invalid bst: 3
+		bst = new Bst(3);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+
+		// Create invalid bst: 4
+		bst = new Bst(4);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		System.out.println("Testing some valid bsts");
+
+		bst = new Bst();
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		bst.insert(10);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		bst.insert(5);
+		bst.insert(15);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		bst.insert(7);
+		bst.insert(6);
+		bst.insert(100);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		bst.insert(80);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+		bst.insert(95);
+		System.out.println("Is valid?: "+ bst.isValidBst());
+
+	}
+
 	public static void main(String args[]){
 
 		// Test Insertion
@@ -210,6 +303,12 @@ class TestBst{
 
 		// Test Deletion
 		testDeletion();
+
+		// test constructor that creates invalid bst
+		testInvalidConstructor();
+
+		// test isValidBst
+		testIsValidBst();
 	}
 
 }
