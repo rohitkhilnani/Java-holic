@@ -2,6 +2,7 @@ package binary_search_tree;
 
 import java.util.Queue;
 import java.util.LinkedList;
+import java.util.Deque;
 import java.util.NoSuchElementException;
 import binary_search_tree.Node;		// My implementation of Node class present in package binary_search_tree
 
@@ -50,7 +51,7 @@ class Bst{
 
 					root = new Node(10);
 					root.setLeft(new Node(7));
-					root.setRight(new Node(11));
+					root.setRight(new Node(9));
 					break;
 				}
 
@@ -393,6 +394,70 @@ class Bst{
 
 		// Return ref, which is the in order successor
 		return ref;
+	}
+
+
+	// Returns true if tree is a valid Binary Search Tree. 
+	// Returns false otherwise
+	// Empty tree (root = null) is assumed to be a valid bst.
+	// Time Complexity: O(N)		N - No. of Nodes
+	// Space Complexity: O(N)	
+
+	public boolean isValidBst(){
+
+		if(root == null)
+			return true;
+
+		// saves last value processed. initially negative infinity
+		int last = Integer.MIN_VALUE;
+
+		// Define a dequeue - to be used as a stack
+		Deque<Node> stk = new LinkedList<Node>();
+
+		Node n = root;
+
+		// repeat while n is not null or deq is not empty
+		while(n!=null || !stk.isEmpty()){
+
+			// if n is not null
+			if(n!=null){
+
+				// add n to stack
+				stk.push(n);
+
+				// set n as its left child
+				n = n.getLeft();
+			}
+			else {  // if n is null
+
+				// if stack is not empty
+				if(stk.size()>0){
+						
+					// pop from stack
+					n = stk.pop();	
+
+					// if this node's value is smaller or equal to last processed value, return false
+					if(n.getValue() <= last)
+						return false;
+					else   // else update last value to current value
+						last = n.getValue();
+
+					// set n as its right
+					n = n.getRight();
+
+				}
+
+
+			}
+
+
+
+		}
+
+		// Since no bst violation occured above, Return true
+		return true;
+
+
 	}
 
 
