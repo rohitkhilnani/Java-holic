@@ -29,6 +29,68 @@ class Bst{
 	}
 
 
+	// Constructs an invalid bst - based on id parameter
+	// *This constructor is purely for testing purpsose*
+
+	Bst(int id){
+
+		// create invalid bst based on id
+		switch(id){
+
+			case 1:{
+					
+					root = new Node(5);
+
+					root.setLeft(new Node(5));
+					root.setRight(new Node(6));
+					break;
+				}
+
+			case 2:{
+
+					root = new Node(10);
+					root.setLeft(new Node(7));
+					root.setRight(new Node(11));
+					break;
+				}
+
+			case 3:{ 
+					root = new Node(10);
+					root.setLeft(new Node(5));
+					root.setRight(new Node(15));
+
+					Node n = root.getLeft();
+					n.setLeft(new Node(2));
+					n.setRight(new Node(11));
+
+					n = root.getRight();
+					n.setLeft(new Node(13));
+					n.setRight(new Node(17));	
+					break;				
+				}
+			case 4:{
+					root = new Node(10);
+					root.setLeft(new Node(5));
+					root.setRight(new Node(15));
+
+					Node n = root.getLeft();
+					n.setLeft(new Node(2));
+					n.setRight(new Node(7));
+
+					n = n.getRight();
+					n.setLeft(new Node(1));
+
+					n = root.getRight();
+					n.setLeft(new Node(13));
+					n.setRight(new Node(17));	
+					break;		
+				}
+		}
+
+
+	}
+
+
 	// Inserts a new node with specified value at specifiec node n.
 	// Time Complexity: 
 	//					Average Case: O(log N)
