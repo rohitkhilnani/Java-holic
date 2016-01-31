@@ -14,8 +14,8 @@ class TestDijkstras
 
 	public static void testA(){
 
-		int N = 6;		// No. of vertices
-		int M = 10;		// No. of edges
+		int N = 7;		// No. of vertices
+		int M = 12;		// No. of edges
 		int edges[][] = {	{1,2,10}, 		// Edges
 							{2,3,1},
 							{3,4,4},
@@ -25,7 +25,9 @@ class TestDijkstras
 							{2,5,2},
 							{5,2,3},
 							{5,3,9},
-							{4,1,7}
+							{4,1,7},
+							{6,7,5},
+							{7,6,6}
 						};
 
 		int s = 1;		// source vertex			 	
