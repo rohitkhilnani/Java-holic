@@ -293,6 +293,76 @@ class TestBst{
 
 	}
 
+
+	// prints whether tree bst is balanced
+	// Also prints level order traversal of tree
+
+	public static void testBalanced(Bst bst){
+
+		System.out.print("Level Order: ");
+		try{
+			bst.levelOrder();
+		}
+		catch(NoSuchElementException e){
+			System.out.print("Tree Empty");
+		}
+
+		System.out.println();
+
+		System.out.println("Is Balanced? : " + bst.isBalanced());
+
+	}
+
+
+	// tests isbalanced 
+
+	public static void testBalanced(){
+
+		System.out.println("Test Balanced\n");
+
+		// Create a bst object
+		Bst bst = new Bst();
+
+		// Test on empty tree
+		testBalanced(bst);	
+
+		bst.insert(100);
+
+		// Test on one node tree
+		testBalanced(bst);	
+
+		// Test on other cases
+
+		bst.insert(50);
+		bst.insert(150);
+		testBalanced(bst);	
+
+		bst.insert(25);
+		testBalanced(bst);	
+
+		bst.insert(20);
+		testBalanced(bst);			
+
+		bst.insert(75);
+		bst.insert(125);
+		testBalanced(bst);				
+		
+		bst.insert(175);
+		bst.insert(110);
+		testBalanced(bst);	
+
+		bst.insert(105);
+		testBalanced(bst);	
+
+		bst.insert(135);
+		bst.insert(140);
+		bst.insert(142);
+		testBalanced(bst);	
+
+
+
+	}	
+
 	public static void main(String args[]){
 
 		// Test Insertion
@@ -309,6 +379,9 @@ class TestBst{
 
 		// test isValidBst
 		testIsValidBst();
+
+		// test isbalanced
+		testBalanced();
 	}
 
 }
