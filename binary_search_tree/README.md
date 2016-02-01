@@ -25,8 +25,14 @@ Methods/ Operations Implemented:
 	public boolean isValidBst() - Returns true if tree is a valid Binary Search Tree. 
 								  Returns false otherwise
 
- 
+	public int getHeight(Node n, boolean[] isBalanced) - Returns node's height (assuming height of leaf is 1) and checks 													  if tree is balanced
+	 													 Parameters: node, whose height is to be found
+				   										isBalanced (one element boolean array) - initially this flag must be supplied as true. 
+	 													If the tree is balanced, isBalanced will remain true after execution of this method. Otherwise, isBalanced would be false			  
 	
+    public boolean isBalanced() -  Calls getHeight and returns flag indicating whether tree is balanced
+								   Returns true if tree is balanced, false otherwise
+								   Prints height of tree
 
 
 
