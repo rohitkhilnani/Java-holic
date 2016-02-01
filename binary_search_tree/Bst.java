@@ -462,4 +462,50 @@ class Bst{
 	}
 
 
+	// Returns node's height (assuming height of leaf is 1) and checks if tree is balanced
+	// Parameters: node, whose height is to be found
+	//			   isBalanced (one element boolean array) - initially this flag must be supplied as true. 
+	// If the tree is balanced, isBalanced will remain true after execution of this method				
+	// Otherwise, isBalanced would be false			 
+	// Time Complexity: O(N)
+	// Space Complexity: O(N)
+
+	public int getHeight(Node n, boolean[] isBalanced){
+
+		// if n is null, return 0
+		if(n == null)
+			return 0;
+
+		// Since n is not null,
+		// Get height of n's children
+
+		int hLeft = getHeight(n.getLeft(), isBalanced);
+		int hRight = getHeight(n.getRight(), isBalanced);
+
+		// if different between heights of left and right subtrees is more than 1, set isBalanced to false
+		if (Math.abs(hLeft - hRight) > 1){
+			isBalanced[0] = false;
+			//System.out.println("found unbalanced");
+		}
+
+		
+		return 1 + Math.max(hLeft, hRight);
+	}
+
+
+	// Calls getHeight and returns flag indicating whether tree is balanced
+	// Returns true if tree is balanced, false otherwise
+	// Time Complexity: O(N)
+	// Space Complexity: O(N)
+	// Prints height of tree
+	public boolean isBalanced(){
+
+		//Boolean result = true;
+		boolean result[] = new boolean[1];
+		result[0] = true;
+		int treeHeight = getHeight(root, result);
+		System.out.println("Height of tree: " + treeHeight);
+		return result[0];
+	}	
+
 }
