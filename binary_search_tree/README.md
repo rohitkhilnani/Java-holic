@@ -2,6 +2,8 @@
 
 Class Bst implements Binary Search tree and tree traversal algorithms
 
+Class BstIterator implements an iterator to visit the tree nodes in in-order fashion
+
 Structure of each node is defined in class Node.
 
 Methods/ Operations Implemented:
@@ -34,5 +36,11 @@ Methods/ Operations Implemented:
 								   Returns true if tree is balanced, false otherwise
 								   Prints height of tree
 
+Iterator Methods: 								   
 
+	public Node next() - Returns next tree node
+
+	public boolean hasNext() - Returns true if there is at least one more element that has not been visited
+							   Returns false otherwise
+	
 
