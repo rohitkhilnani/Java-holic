@@ -23,7 +23,7 @@ import binary_search_tree.Node;		// My implementation of Node class present in p
 
 class Bst{
 
-	private Node root = null; 		// Root of the tree
+	Node root = null; 		// Root of the tree // (made default access to be able to test and use iterator)
 
 	// Constructs bst with default values
 	Bst(){
