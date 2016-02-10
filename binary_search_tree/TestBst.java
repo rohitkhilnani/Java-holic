@@ -3,6 +3,7 @@ package binary_search_tree;
 import java.util.NoSuchElementException;
 import binary_search_tree.Bst;	// My implementation of Binary Search Tree in package binary_search_tree
 import binary_search_tree.Node;	// My implementation of Node for BST in package binary_search_tree.
+import binary_search_tree.BstIterator;	// My implementation of Iterator for BST in package binary_search_tree.
 /*
 	Class to test class Bst. (Binary Search Tree)
 */
@@ -363,6 +364,84 @@ class TestBst{
 
 	}	
 
+
+// Test iterator
+
+public static void testIterator(){
+
+	System.out.println("Testing iterator");
+
+	// Create a bst object
+		Bst bst = new Bst();
+
+		// try printing on empty tree
+		BstIterator itr = new BstIterator(bst.root);
+		System.out.println("Using iterator on empty tree");
+		if(itr.hasNext()){
+			while(itr.hasNext()){
+				System.out.print(itr.next().getValue()+"* ");
+			}
+		}
+		else{
+			System.out.println("Tree empty");
+		}
+
+	
+		// Create array of integers to insert
+		int[] values = {100,50,150,40,75,120,180,20,45,55,121,160,52,122,123};
+		
+
+		// Insert values into bst
+		for(int v: values){
+			bst.insert(v);
+		}
+
+		// print inorder traversal
+		System.out.print("Inorder: \t");
+		bst.inOrder();
+
+		// print using iterator
+		System.out.print("\nUsing Iterator: ");
+
+		itr = new BstIterator(bst.root);
+
+		while(itr.hasNext()){
+			System.out.print(itr.next().getValue()+" ");
+		}
+
+		System.out.println();
+
+		System.out.println("Right skewed: ");
+		// Test on right skewed tree
+		Bst bst2 = new Bst();
+
+		for(int i = 1;i<=10;i++)
+			bst2.insert(i);
+
+		itr = new BstIterator(bst2.root);
+
+		while(itr.hasNext()){
+			System.out.print(itr.next().getValue()+" ");
+		}
+
+	
+		System.out.println("\nLeft skewed: ");
+		// Test on left skewed tree
+		Bst bst3 = new Bst();
+
+		for(int i = 10;i>=1;i--)
+			bst3.insert(i);
+
+		itr = new BstIterator(bst3.root);
+
+		while(itr.hasNext()){
+			System.out.print(itr.next().getValue()+" ");
+		}
+
+
+}
+
+
 	public static void main(String args[]){
 
 		// Test Insertion
@@ -382,6 +461,9 @@ class TestBst{
 
 		// test isbalanced
 		testBalanced();
+
+		// test iterator
+		testIterator();
 	}
 
 }
