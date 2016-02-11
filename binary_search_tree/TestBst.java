@@ -441,6 +441,51 @@ public static void testIterator(){
 
 }
 
+// Test level order
+
+public static void testLevelOrder(){
+
+	System.out.println("Testing Level Order: ");
+
+	Bst bst = new Bst();
+
+	// check on empty tree
+	try{
+
+		bst.levelOrder();
+	}
+	catch(NoSuchElementException e){
+		System.out.println(e);
+	}
+
+	bst.insert(100);
+	bst.insert(80);
+	bst.insert(60);
+	bst.insert(40);
+
+	bst.levelOrder();
+	System.out.println();
+
+	bst.insert(120);
+	bst.insert(140);
+	bst.insert(160);
+	bst.insert(180);
+	
+	bst.levelOrder();
+	System.out.println();
+
+	bst.insert(85);
+	bst.insert(82);
+	bst.insert(105);
+
+	bst.levelOrder();
+	System.out.println();
+}
+
+
+
+
+
 
 	public static void main(String args[]){
 
@@ -464,6 +509,9 @@ public static void testIterator(){
 
 		// test iterator
 		testIterator();
+
+		// test level order
+		testLevelOrder();
 	}
 
 }
