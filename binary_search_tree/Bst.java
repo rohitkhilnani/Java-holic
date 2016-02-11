@@ -254,6 +254,10 @@ class Bst{
 		// Create a queue to hold Nodes
 		Queue<Node> queue = new LinkedList<Node>();
 
+		// counters to track number of nodes in current and next level
+		int currentLevelNodes = 1;
+		int nextLevelNodes = 0;
+
 		// Insert root node in queue
 		queue.add(root);
 
@@ -263,15 +267,37 @@ class Bst{
 			// Remove node from queue
 			Node n = queue.remove();
 
+			// Decrement current level nodes
+			currentLevelNodes--;
+
 			// Print its value
 			System.out.print(n.getValue()+" ");
 
-			// Insert its left and right child on queue.
-			if(n.getLeft()!=null)
+			// Insert its left and right child on queue. Increment next level nodes
+			if(n.getLeft()!=null){
 				queue.add(n.getLeft());
+				nextLevelNodes++; 			
+			}	
 
-			if(n.getRight()!=null)
+			if(n.getRight()!=null){
 				queue.add(n.getRight());		
+				nextLevelNodes++; 
+			}	
+
+
+			// If current level nodes have been printed
+			if(currentLevelNodes == 0){
+
+				// set currentLevelNodes = nextLevelNodes
+				currentLevelNodes = nextLevelNodes;
+
+				// set nextLevelNodes = 0
+				nextLevelNodes = 0;
+
+				// print newline indicating end of current level
+				System.out.println();
+
+			}
 
 		}
 
