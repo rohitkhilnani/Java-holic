@@ -16,3 +16,9 @@ Methods/ Operations implemented :
 	// Time Complexity: O(N)	N - Number of symbols in v
 	
 	public static boolean next_permutation(ArrayList<Integer> v)
+
+
+	// Returns rank of permutation in sequence represented by ArrayList v
+	// Time Complexity: O(N*N)
+
+	public static int getRank(ArrayList<Integer> v)
