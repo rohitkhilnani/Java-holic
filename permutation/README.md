@@ -1,12 +1,12 @@
 # Permutation
 
-This class contains methods to find the next permutation of a set of symbols and to find nth permutation of a set of symbols efficiently.
+This class contains methods related to permutation of a sequence represented using an ArrayList.
 
 Methods/ Operations implemented :
 
 	// Returns ArrayList containing kth permutation of the symbols in ArrayList v
 	// symbols in v must be sorted in ascending order
-	// Time Complexity: O(n*n) where n is the number of symbols in v
+	// Time Complexity: O(N*N) where N is the number of symbols in v
 
 	public static ArrayList<Integer> kth_permutation(ArrayList<Integer> v, int k)
 
@@ -19,6 +19,9 @@ Methods/ Operations implemented :
 
 
 	// Returns rank of permutation in sequence represented by ArrayList v
-	// Time Complexity: O(N*N)
+	// Time Complexity: O(N*N)	where N is the number of symbols in v
 
 	public static int getRank(ArrayList<Integer> v)
+
+
+Note: It is assumed that each symbol occurs only once in the sequence
