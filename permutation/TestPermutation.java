@@ -47,6 +47,36 @@ class TestPermutation{
 
 	}
 
+
+	// test getRank
+
+	public static void testGetRank(){
+
+		System.out.println("\nTest getRank");
+
+		Integer arr[] = {1,2,3,4,5};
+
+		ArrayList<Integer> v = new ArrayList<Integer>( Arrays.asList(arr) );
+
+		System.out.print("Rank: "+ Permutation.getRank(v)+" --> ");
+		for(Integer x: v)
+			System.out.print(x+" ");
+
+		while(Permutation.next_permutation(v)){
+			System.out.println();
+			System.out.print("Rank: "+ Permutation.getRank(v)+" --> ");
+			for(Integer x: v)
+				System.out.print(x+" ");
+
+		}
+
+		ArrayList<Integer> temp = new ArrayList<Integer>();
+		System.out.print("\nRank of empty sequence: "+ Permutation.getRank(temp));
+
+		temp.add(5);
+		System.out.print("\nRank of single element sequence: "+ Permutation.getRank(temp));		
+	}
+
 	public static void main(String[] args){
 
 		int k = 1;
@@ -57,6 +87,8 @@ class TestPermutation{
 		testkth(k);
 
 		test_next_permutation();
+
+		testGetRank();
 
 	}
 
