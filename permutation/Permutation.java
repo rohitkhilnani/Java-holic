@@ -176,4 +176,49 @@ class Permutation{
 	}
 
 
+	// Returns rank of permutation in sequence represented by ArrayList v
+	// Time Complexity: O(N*N)
+
+	public static int getRank(ArrayList<Integer> v){
+
+		// empty sequence
+		if(v.isEmpty())
+			return 0;
+
+		// only 1 permutation possible
+		if(v.size() == 1)
+			return 1;
+
+		// save size
+		int n = v.size();
+
+		// get (n-1)!
+		int fact = getFact(n-1);
+
+		// rank
+		int rank = 0;
+
+		// for symbol at index 0 through n-2
+		for(int i=0;i<n-1;i++){
+
+			// count number of symbols smaller than v[i] in index range i+1 through n-1
+			int smaller = 0;
+			for(int j=i+1;j<n;j++)
+				if(v.get(j) < v.get(i))
+					smaller ++;
+
+			// Update rank
+			rank += (smaller*fact);
+			
+			// update factorial for next iteration
+			fact = fact/(n-1-i);	
+		}	
+
+		// return true rank
+		return rank+1;
+
+
+	}
+
+
 }
