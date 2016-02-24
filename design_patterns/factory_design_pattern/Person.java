@@ -10,7 +10,7 @@ abstract class Person{
 	protected String name;
 
 	// Access type
-	String access;
+	protected String access;
 	
 	// Sets Name
 
